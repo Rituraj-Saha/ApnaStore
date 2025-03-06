@@ -7,7 +7,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
 fx:controller="com.techmasan.apnastoreUi.uiController.AddItemController">
    <children>
-       <TableView fx:id="mtable">
+       <TableView fx:id="mtable" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             
         </TableView>
    </children>

@@ -35,9 +35,17 @@ public class AddItemController {
 
         TableColumn<Product, Double> priceColumn = new TableColumn<>("Price");
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        
+        TableColumn<Product, Double> stockColumn = new TableColumn<>("Stock");
+        stockColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        
+        idColumn.setCellValueFactory(cellData -> cellData.getValue().getId().asObject());
+        nameColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
+        priceColumn.setCellValueFactory(cellData -> cellData.getValue().getPrice().asObject());
+        stockColumn.setCellValueFactory(cellData -> cellData.getValue().getStock().asObject());
 
         // Add columns to table
-        mtable.getColumns().addAll(idColumn, nameColumn, priceColumn);
+        mtable.getColumns().addAll(idColumn, nameColumn, priceColumn,stockColumn);
 
         // Populate data
         loadProducts();
@@ -48,6 +56,7 @@ public class AddItemController {
 //        productList.add(new Product(1L, "Laptop", 1500.00));
 //        productList.add(new Product(2L, "Smartphone", 700.00));
 //        productList.add(new Product(3L, "Headphones", 150.00));
+
     	if(ps!=null)
         mtable.setItems(ps.getAllProducts());
     	else
