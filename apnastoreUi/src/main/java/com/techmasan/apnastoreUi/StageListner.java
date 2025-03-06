@@ -10,8 +10,10 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -21,9 +23,9 @@ public class StageListner implements ApplicationListener<StageReadyEvent> {
 	private final String applicationTitle;
 	private final Resource fxml;
 	private final ApplicationContext ac;
-	
+
 	public StageListner(@Value("${spring.application.ui.title}") String applicationTitle,
-			@Value("classpath:/home.fxml") Resource resource,ApplicationContext ac) {
+			@Value("classpath:/home.fxml") Resource resource, ApplicationContext ac) {
 		this.applicationTitle = applicationTitle;
 		this.fxml = resource;
 		this.ac = ac;
@@ -37,8 +39,10 @@ public class StageListner implements ApplicationListener<StageReadyEvent> {
 			URL url = this.fxml.getURL();
 			FXMLLoader fxmlLoader = new FXMLLoader(url);
 			fxmlLoader.setControllerFactory(ac::getBean);
-			Parent root =  fxmlLoader.load();
-			Scene scene = new Scene(root,600,600);
+			Parent root = fxmlLoader.load();
+			Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+			System.out.println(screenBounds);
+			Scene scene = new Scene(root, screenBounds.getWidth(),screenBounds.getHeight()-80);
 			stage.setScene(scene);
 			stage.setTitle(this.applicationTitle);
 			stage.show();
