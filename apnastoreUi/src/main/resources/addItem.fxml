@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="com.techmasan.apnastoreUi.uiController.AddItemController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.techmasan.apnastoreUi.uiController.AddItemController">
    <children>
+     
        <TableView fx:id="mtable" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             
         </TableView>
+       
+          <Button fx:id="plusButton" text="+" mnemonicParsing="false" 
+              style="-fx-background-radius: 50%; -fx-font-size: 18px; -fx-padding: 10px;"
+              AnchorPane.topAnchor="700.0" AnchorPane.rightAnchor="50.0"/>
    </children>
 </AnchorPane>
